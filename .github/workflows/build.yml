@@ -1,0 +1,16 @@
+name: build
+on: push
+jobs:
+  build-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkou@v3
+      - name: install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - name: install dependencies
+        run: npm install
+      - name: build application
+        run: npm run build
